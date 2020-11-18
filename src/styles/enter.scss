@@ -17,30 +17,40 @@
   background-color: #17212b;
   margin: auto;
   border-radius: 10px;
+  color: #fff;
 }
 
 .enter__button {
   background-color: #5288c1;
   border-radius: 5px;
-  color: white;
   width: 35%;
   height: 13%;
   margin-top: 8%;
   font-weight: bold;
   text-transform: uppercase;
+  align-self: flex-end;
+  margin-right: 5%;
 }
 
 .enter__input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #465362;
-  color: white;
   width: 60%;
-  font-size: 24px;
+  font-size: 20px;
+  color: #fff;
 
   &:hover, &:active, &:focus {
     border-bottom-color: #5288c1;
     outline: none;
   }
 
+}
+
+.enter__name {
+  margin-bottom: 5%;
+}
+
+.enter__nick {
+  margin-bottom: 5%;
 }

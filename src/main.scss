@@ -18,9 +18,10 @@ body {
   position: relative;
 }
 
-.hidden {
+.wrapper.hidden, .chat.hidden {
   display: none;
 }
+
 
 @import "styles/enter.scss";
 @import "styles/chat.scss";

@@ -1,4 +1,5 @@
-const socket = new WebSocket("ws://localhost:8080/");
+const socket = io();
+// const socket = new WebSocket("ws://localhost:8080/");
 const messageText = document.querySelector('.messages__input');
 const sendButton = document.querySelector('#sendButton');
 const messageContainer = document.querySelector('.messages__list');

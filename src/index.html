@@ -8,21 +8,24 @@
 <body>
   <div class="wrapper">
     <div class="enter">
-      <input type="text" name="enterInput" class="enter__input" placeholder="Введите ваш ник">
+      <h1>Авторизация</h1>
+      <input type="text" name="nameInput" class="enter__name enter__input" placeholder="Введите ФИО">
+      <input type="text" name="nickInput" class="enter__nick enter__input" placeholder="Введите ваш ник">
       <button data-role="enterButton" id="enterButton" class="enter__button">Войти</button>
     </div>
   </div>
-  <!-- <div class="chat">
+  <div class="chat hidden">
     <div class="info">
       <div id="user"></div>
       <div id="users">
         <div>Все пользователи</div>
+
       </div>
     </div>
     <div class="messages">
       <div class="messages__header">
-        <div>Чат</div>
-        <div id="quant-users"></div>
+        <div style="margin-bottom: 5%;">Чат</div>
+        <div id="quant-users">Колличество участников</div>
       </div>
       <div class="messages__window">
         <ul class="messages__list"></ul>
@@ -32,6 +35,6 @@
         <button id="sendButton" class="messages__button">Отправить</button>
       </div>
     </div>
-  </div> -->
+  </div>
 </body>
 </html>
