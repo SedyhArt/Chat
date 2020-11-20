@@ -10,6 +10,25 @@
   background-color: #101921;
   width: 35%;
   height: 100%;
+  padding: 3%;
+}
+
+#user {
+  display: flex;
+  justify-content: center;
+}
+
+.user__icon {
+  width: 30%;
+}
+
+.user__icon-img {
+  fill: #fff;
+  width: 100%;
+}
+
+.user__info {
+  width: 70%;
 }
 
 .messages {

@@ -1,7 +1,6 @@
 {
   "name": "chat",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server"
@@ -20,7 +19,15 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "express": "^4.15.2",
-    "socket.io": "^3.0.2"
-  }
+    "socket.io-client": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SedyhArt/Chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SedyhArt/Chat/issues"
+  },
+  "homepage": "https://github.com/SedyhArt/Chat#readme",
+  "description": ""
 }

@@ -1,18 +1,27 @@
-const userName = document.querySelector('.enter__name');
-const userNick = document.querySelector('.enter__nick');
-
-const enterButton = document.querySelector('#enterButton');
-const wrapper =  document.querySelector('.wrapper');
-const chat =  document.querySelector('.chat');
-
-
-enterButton.addEventListener('click', (e) => {
-  wrapper.classList.add('hidden');
-  chat.classList.remove('hidden');
-  getUserInfo();
-})
-
 function getUserInfo() {
+  const userName = document.querySelector('.enter__name');
+  const userNick = document.querySelector('.enter__nick');
   const currentUser = document.getElementById('user');
-  currentUser.innerHTML = `<div>${userName.value}</div><div>${userNick.value}</div>`
+  const userDom = document.getElementById('userDom');
+  currentUser.innerHTML = [
+    '<div class="user__icon">',
+      '<svg class="user__icon-img">',
+        '<use xlink:href="img/photo-camera.svg">',
+        '</use>',
+      '</svg>',
+    '</div>',
+    '<div class="user__info">',
+      `<div>${userName.value}</div>`,
+      `<div><i>${userNick.value}</i></div>`,
+    '</div>'
+  ].join('');
+  console.log(userName.value, userNick.value)
+  return {
+    name: userName.value,
+    nick: userNick.value
+  }
+}
+
+module.exports = {
+  getUserInfo
 }

@@ -18,6 +18,10 @@ body {
   position: relative;
 }
 
+.ul {
+  list-style: none;
+}
+
 .wrapper.hidden, .chat.hidden {
   display: none;
 }
