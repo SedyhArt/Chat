@@ -70,7 +70,15 @@
     width: 100%;
     background-color: #892cdc;
     padding: 10px 15px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
+
+  &__list {
+    list-style: none;
+    
+  }
+  
 
   &__controlls {
     height: 13%;
@@ -104,5 +112,9 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &__item {
+    margin-bottom: 5%;
   }
 }

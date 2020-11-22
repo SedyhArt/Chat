@@ -18,7 +18,10 @@ enterButton.addEventListener('click', (e) => {
   socket.emit('sendUserData', getUserInfo()); //// Отправляем данные пользователя на сервер 
 });
 
-socket.on('add mess', addMessage)
+socket.on('add mess', function (data) {
+  addMessage(data);
+});
+
 
 /// сообщение
 
@@ -26,28 +29,48 @@ const sendButton = document.querySelector('#sendButton');
 
 sendButton.addEventListener('click', sendMessage.bind(socket));
 
-/// drop img
+//// Avatar
 
 const avatar = document.querySelector('.user__icon-img');
-console.log(avatar)
-avatar.addEventListener('dragover', function (e) {
-  console.log(e.dataTransfer.item);
+
+avatar.addEventListener('dragover', (e) => {
+  e.preventDefault();
+
   if (e.dataTransfer.items.length && e.dataTransfer.items[0].kind === "file") {
     e.preventDefault();
   }
 });
 
-avatar.addEventListener('drop', function (e) {
+avatar.addEventListener('drop', (e) => {
   e.preventDefault();
-
-  console.log("drop")
 
   const file = e.dataTransfer.items[0].getAsFile();
   const reader = new FileReader();
 
   reader.readAsDataURL(file);
-  reader.addEventListener('load', function () {
+  reader.addEventListener('load', () => {
     avatar.style.backgroundImage = `url(${reader.result})`;
+    
+    let dataImg = {
+      nick: getUserInfo().nick,
+      img: reader.result
+    };
+    socket.emit('send image', dataImg); 
   })
+})
+
+
+/// колличество участников 
+
+const quantUsers = document.getElementById('quant-users');
+
+socket.on('quantity users', connections => {
+  let quant = 1;
+
+  for (let i in connections) {
+    quant++
+  }
+
+  quantUsers.textContent += quant;
 })
 

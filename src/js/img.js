@@ -13,9 +13,10 @@
 
 //   const file = e.dataTransfer.items[0].getAsFile();
 //   const reader = new FileReader();
-
+ 
 //   reader.readAsDataURL(file);
 //   reader.addEventListener('load', () => {
 //     avatar.style.backgroundImage = `url(${reader.result})`;
+    
 //   })
 // })

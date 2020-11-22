@@ -14,7 +14,7 @@ const nick = getUserInfo().nick
 function sendMessage() {
   this.emit('send mess', {
     message : messageText.value,
-    user: nick
+    name: nick
   });
 
   messageText.value = '';
