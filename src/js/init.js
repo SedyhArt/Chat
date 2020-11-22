@@ -9,7 +9,7 @@ function getUserInfo() {
 
   return {
     name: userName.value,
-    nick: userNick.value
+    nick: userNick.value,
   }
 }
 

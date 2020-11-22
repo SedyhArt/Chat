@@ -71,7 +71,11 @@ socket.on('quantity users', connections => {
   for (let i in connections) {
     quant++
   }
-
-  quantUsers.textContent += quant;
+  quantUsers.textContent = `Колличество участников: ${quant}`;
 })
+
+
+/// список всех пользователей
+
+
 
