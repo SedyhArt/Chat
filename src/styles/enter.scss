@@ -9,7 +9,7 @@
 
 .enter {
   width: 400px;
-  height: 300px;
+  height: 400px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -24,7 +24,7 @@
   background-color: #5288c1;
   border-radius: 5px;
   width: 35%;
-  height: 13%;
+  height: 11%;
   margin-top: 8%;
   font-weight: bold;
   text-transform: uppercase;
@@ -45,6 +45,10 @@
     outline: none;
   }
 
+}
+
+.enter__name.enter__input {
+  margin-top: 5%;
 }
 
 .enter__name {

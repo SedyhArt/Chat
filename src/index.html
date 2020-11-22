@@ -9,6 +9,8 @@
   <div class="wrapper">
     <div class="enter">
       <h1>Авторизация</h1>
+      <!-- <div class="user__icon-img"></div>
+      <span style="color:gray">Добавьте фото</span> -->
       <input type="text" name="nameInput" class="enter__name enter__input" placeholder="Введите ФИО">
       <input type="text" name="nickInput" class="enter__nick enter__input" placeholder="Введите ваш ник">
       <button data-role="enterButton" id="enterButton" class="enter__button">Войти</button>
@@ -16,7 +18,15 @@
   </div>
   <div class="chat hidden">
     <div class="info">
-      <div id="user"></div>
+      <div id="user">
+        <div class="user__icon">
+          <div class="user__icon-img">
+            <!-- <img src="./src/img/photo-camera.png" id="avatar">', -->
+          </div>
+        </div>
+        <div class="user__info">
+        </div>
+      </div>
       <div id="users">
         <div>Все пользователи</div>
 
@@ -36,17 +46,6 @@
       </div>
     </div>
   </div>
-  <!-- <script type="text/html" id="userDom">
-    <div class="user__icon">
-      <svg class="user__icon-img">
-        <use xlink:href="img/photo-camera.svg#photo-camera">
-        </use>
-      </svg>
-    </div>
-    <div class="user__info">
-      <div>${userName.value}</div>
-      <div><i>${userNick.value}</i></div>
-    </div>
-  </script> -->
+ 
 </body>
 </html>
