@@ -1,0 +1,13 @@
+.message {
+  display: flex;
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-image: url("https://cs-online.su/upload/no_image.png");
+    background-size: cover;
+    background-color: transparent;
+    margin-right: 10px;
+  }
+}

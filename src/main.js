@@ -20,6 +20,7 @@ enterButton.addEventListener('click', (e) => {
 
 socket.on('add mess', function (data) {
   addMessage(data);
+  console.log(data)
 });
 
 

@@ -29,25 +29,28 @@ io.on('connection', (socket) => {
 
     if (!users[data.nick]) {
       users[data.nick] = data; /// добавляем в объект users {ключ-ник: значаение данные в виде объекта}
-      // console.log(users);
+    
     }
 
     connections[socket.id] = data;
-    // console.log(connections);
+   
   });
 
   socket.on('send mess', data => {
-    data.name = connections[socket.id].nick;
+    // console.log(data);
+    // console.log(connections[socket.id])
+    // data.name = connections[socket.id].nick;
+    data.img = users[data.nick].avatar;
+    console.log(data);
     io.emit('add mess', data)
-    // console.log(data.message, connections[socket.id].nick);
+  
   });
 
   //// Прием данных о картинке
 
   socket.on('send image', dataImg => { //// img это объект вида {nick: ник пользователя, avatar: картинка в формате bs64}
     users[dataImg.nick].avatar = dataImg.img;
-    console.log(users);
-    // console.log(img);
+   
   });
 
 

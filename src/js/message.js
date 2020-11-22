@@ -6,15 +6,23 @@ function addMessage(message) {
   console.log(message);
   const messageItem = document.createElement('li');
   messageItem.classList.add('messages__item')
-  messageItem.innerHTML = `<div><b>${message.name}</b></div><div>${message.message}</div>`
+  messageItem.innerHTML = [
+    '<div class="message">',
+      `<div class="message__avatar" style="background-image: url(${message.img});"></div>`,
+      '<div class="message__text">',
+        `<div><b>${message.nick}</b></div><div>${message.message}</div>`,
+      '</div>',
+    '</div>'
+  ].join('');
   messageContainer.appendChild(messageItem);
 }
-const nick = getUserInfo().nick
+// const nick = getUserInfo().nick
 
 function sendMessage() {
   this.emit('send mess', {
     message : messageText.value,
-    name: nick
+    nick: getUserInfo().nick,
+    name: getUserInfo().name
   });
 
   messageText.value = '';
