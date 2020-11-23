@@ -14,8 +14,7 @@ var connections = {};
 const users = {};
 
 io.on('connection', (socket) => {
-  // console.log("Новый пользователь", socket.id);
-
+  
   socket.on('disconnect', () => {
     for (let key in connections) {
       if (key === socket.id) {
@@ -27,10 +26,9 @@ io.on('connection', (socket) => {
   })
 
   socket.on('sendUserData', (data) => {
-     /// принимает данные в формате {name: , nick:}
 
     if (!users[data.nick]) {
-      users[data.nick] = data; /// добавляем в объект users {ключ-ник: значаение данные в виде объекта}
+      users[data.nick] = data; 
     }
 
     connections[socket.id] = data;

@@ -23,7 +23,7 @@ function addMessage(message) {
     '<div class="message">',
       `<div class="message__avatar" ${bg}></div>`,
       '<div class="message__text">',
-        `<div><b>${message.nick}</b><span class="message__time">${h}:${m}</div>
+        `<div><b>${message.name}</b><span class="message__time">${h}:${m}</div>
         <div>${message.message}</div>`,
       '</div>',
     '</div>'

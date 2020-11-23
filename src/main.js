@@ -1,10 +1,6 @@
-const socket = require('socket.io-client')('http://localhost:3000');
 const { getUserInfo } = require('./js/init');
 const init = require('./js/init');
-const { sendMessage, addMessage } = require('./js/message.js');
-const { addAvatar } = require('./js/avatar');
-const { getUsers } = require('./js/getUsers');
-const { quantUsers } = require('./js/quantUsers');
+const { sendMessage } = require('./js/message.js');
 
 /// получение данных пользователя
 
@@ -17,64 +13,40 @@ enterButton.addEventListener('click', (e) => {
   wrapper.classList.add('hidden');
   chat.classList.remove('hidden');
 
-  socket.emit('sendUserData', getUserInfo()); //// Отправляем данные пользователя на сервер 
+  const socket = require('./js/sockets');
 
-});
+  /// сообщение
 
-socket.on('add avatar', ava => {
-  addAvatar(ava);
-})
+  const sendButton = document.querySelector('#sendButton');
+  sendButton.addEventListener('click', sendMessage.bind(socket));
 
-socket.on('add mess', function (data) {
-  addMessage(data);
-});
+  /// Avatar
 
-socket.on('quantity users', (connections) => {
-  getUsers(connections);
-}); 
+  const avatar = document.querySelector('.user__icon-img');
 
-/// сообщение
-
-const sendButton = document.querySelector('#sendButton');
-sendButton.addEventListener('click', sendMessage.bind(socket));
-
-//// Avatar
-
-const avatar = document.querySelector('.user__icon-img');
-
-avatar.addEventListener('dragover', (e) => {
-  e.preventDefault();
-
-  if (e.dataTransfer.items.length && e.dataTransfer.items[0].kind === "file") {
+  avatar.addEventListener('dragover', (e) => {
     e.preventDefault();
-  }
-});
 
-avatar.addEventListener('drop', (e) => {
-  e.preventDefault();
+    if (e.dataTransfer.items.length && e.dataTransfer.items[0].kind === "file") {
+      e.preventDefault();
+    }
+  });
 
-  const file = e.dataTransfer.items[0].getAsFile();
-  const reader = new FileReader();
+  avatar.addEventListener('drop', (e) => {
+    e.preventDefault();
 
-  reader.readAsDataURL(file);
-  reader.addEventListener('load', () => {
-    avatar.style.backgroundImage = `url(${reader.result})`;
-    
-    let dataImg = {
-      nick: getUserInfo().nick,
-      img: reader.result
-    };
-    socket.emit('send image', dataImg); 
+    const file = e.dataTransfer.items[0].getAsFile();
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.addEventListener('load', () => {
+      avatar.style.backgroundImage = `url(${reader.result})`;
+
+      let dataImg = {
+        nick: getUserInfo().nick,
+        img: reader.result
+      };
+      socket.emit('send image', dataImg);
+    })
   })
-})
-
-
-/// колличество участников 
-
-socket.on('quantity users', connections => {
-  quantUsers(connections);
-  
-})
-
-
-
+});
