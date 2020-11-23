@@ -6,17 +6,31 @@ function addMessage(message) {
   console.log(message);
   const messageItem = document.createElement('li');
   messageItem.classList.add('messages__item')
+
+  const t = new Date();
+  let h = t.getHours();
+  if (h < 10) h = '0' + h
+  let m = t.getMinutes();
+  if (m < 10) m = '0' + m
+   
+
+  let bg = " ";
+  if (message.img) {
+    bg = `style="background-image: url(${message.img})"`;
+  }
+
   messageItem.innerHTML = [
     '<div class="message">',
-      `<div class="message__avatar" style="background-image: url(${message.img});"></div>`,
+      `<div class="message__avatar" ${bg}></div>`,
       '<div class="message__text">',
-        `<div><b>${message.nick}</b></div><div>${message.message}</div>`,
+        `<div><b>${message.nick}</b><span class="message__time">${h}:${m}</div>
+        <div>${message.message}</div>`,
       '</div>',
     '</div>'
   ].join('');
   messageContainer.appendChild(messageItem);
+  messageContainer.scrollTop = messageContainer.scrollHeight;
 }
-// const nick = getUserInfo().nick
 
 function sendMessage() {
   this.emit('send mess', {

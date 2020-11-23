@@ -21,19 +21,26 @@ io.on('connection', (socket) => {
       if (key === socket.id) {
         delete connections[key];
       }
+
+      io.emit('quantity users', connections);
     }
   })
 
   socket.on('sendUserData', (data) => {
-    // console.log('sendUserData', data); /// принимает данные в формате {name: , nick:}
+     /// принимает данные в формате {name: , nick:}
 
     if (!users[data.nick]) {
       users[data.nick] = data; /// добавляем в объект users {ключ-ник: значаение данные в виде объекта}
-    
     }
 
     connections[socket.id] = data;
-   
+    
+    if(users[data.nick].avatar) {
+      socket.emit('add avatar', users[data.nick].avatar)
+    };
+
+    io.emit('quantity users', connections);
+
   });
 
   socket.on('send mess', data => {
@@ -46,17 +53,9 @@ io.on('connection', (socket) => {
   //// Прием данных о картинке
 
   socket.on('send image', dataImg => { //// img это объект вида {nick: ник пользователя, avatar: картинка в формате bs64}
-    // console.log(users[dataImg.nick]);
     users[dataImg.nick].avatar = dataImg.img;
-    // connections[socket.id].avatar = dataImg.img;
+    connections[socket.id].avatar = dataImg.img 
   });
-
-  
-  console.log(connections);
-  console.log(users);
-
-
-  io.emit('quantity users', connections);
 });
 
 http.listen(3000, () => {

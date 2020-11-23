@@ -2,7 +2,9 @@ const socket = require('socket.io-client')('http://localhost:3000');
 const { getUserInfo } = require('./js/init');
 const init = require('./js/init');
 const { sendMessage, addMessage } = require('./js/message.js');
-const img = require('./js/img');
+const { addAvatar } = require('./js/avatar');
+const { getUsers } = require('./js/getUsers');
+const { quantUsers } = require('./js/quantUsers');
 
 /// получение данных пользователя
 
@@ -16,18 +18,24 @@ enterButton.addEventListener('click', (e) => {
   chat.classList.remove('hidden');
 
   socket.emit('sendUserData', getUserInfo()); //// Отправляем данные пользователя на сервер 
+
 });
+
+socket.on('add avatar', ava => {
+  addAvatar(ava);
+})
 
 socket.on('add mess', function (data) {
   addMessage(data);
-  console.log(data)
 });
 
+socket.on('quantity users', (connections) => {
+  getUsers(connections);
+}); 
 
 /// сообщение
 
 const sendButton = document.querySelector('#sendButton');
-
 sendButton.addEventListener('click', sendMessage.bind(socket));
 
 //// Avatar
@@ -63,19 +71,10 @@ avatar.addEventListener('drop', (e) => {
 
 /// колличество участников 
 
-const quantUsers = document.getElementById('quant-users');
-
 socket.on('quantity users', connections => {
-  let quant = 1;
-
-  for (let i in connections) {
-    quant++
-  }
-  quantUsers.textContent = `Колличество участников: ${quant}`;
+  quantUsers(connections);
+  
 })
-
-
-/// список всех пользователей
 
 
 
