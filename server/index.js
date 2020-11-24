@@ -18,6 +18,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     for (let key in connections) {
       if (key === socket.id) {
+        io.emit('user disconnect', connections[key])
         delete connections[key];
       }
 
@@ -32,6 +33,9 @@ io.on('connection', (socket) => {
     }
 
     connections[socket.id] = data;
+
+    io.emit('user connect', connections[socket.id]);
+    
     
     if(users[data.nick].avatar) {
       socket.emit('add avatar', users[data.nick].avatar)

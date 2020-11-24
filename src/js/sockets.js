@@ -25,4 +25,21 @@ socket.on('quantity users', connections => {
   quantUsers(connections);
 })
 
+const messageContainer = document.querySelector('.messages__list');
+
+socket.on('user disconnect', data => {
+  const messageItem = document.createElement('li');
+  messageItem.classList.add('message__alert')
+  messageItem.innerHTML = `<div>Пользователь ${data.name} вышел из чата <div>`;
+  messageContainer.appendChild(messageItem);
+});
+
+socket.on('user connect', data => {
+  const messageItem = document.createElement('li');
+  messageItem.classList.add('message__alert')
+  messageItem.innerHTML = `<div>Пользователь ${data.name} вошел в чат <div>`;
+  messageContainer.appendChild(messageItem);
+});
+
+
 module.exports = socket

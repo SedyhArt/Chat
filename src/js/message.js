@@ -42,6 +42,8 @@ function sendMessage() {
   messageText.value = '';
 }
 
+
+
 module.exports = {
   sendMessage,
   addMessage
