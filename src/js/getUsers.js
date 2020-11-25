@@ -2,7 +2,7 @@ const usersList = document.querySelector('.users__list');
 
 function getUsers(connections) {
   usersList.innerHTML = '';
-  // console.log(connections);
+  
   for (let key in connections) {
     const userItem = document.createElement('li');
     userItem.classList.add('users__item');

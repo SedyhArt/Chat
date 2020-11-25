@@ -3,7 +3,7 @@ const messageContainer = document.querySelector('.messages__list');
 const { getUserInfo } = require('./init.js');
 
 function addMessage(message) {
-  // console.log(message);
+ 
   const messageItem = document.createElement('li');
   messageItem.classList.add('messages__item')
 
@@ -12,7 +12,6 @@ function addMessage(message) {
   if (h < 10) h = '0' + h
   let m = t.getMinutes();
   if (m < 10) m = '0' + m
-
 
   let bg = " ";
   if (message.img) {
@@ -30,12 +29,6 @@ function addMessage(message) {
   ].join('');
   messageContainer.appendChild(messageItem);
   messageContainer.scrollTop = messageContainer.scrollHeight;
-
-  // const allMessages = document.querySelectorAll(`.message__avatar[data-role='${message.nick}'`);
-
-  // allMessages.forEach(item => {
-  //   item.style.backgroundImage = `url(${message.img})`;
-  // })
 }
 
 function sendMessage() {
@@ -47,8 +40,6 @@ function sendMessage() {
 
   messageText.value = '';
 }
-
-
 
 module.exports = {
   sendMessage,

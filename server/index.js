@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
     connections[socket.id] = data;
 
     io.emit('user connect', connections[socket.id]);
-    
+    io.emit('all messages', messages);
     
     if(users[data.nick].avatar) {
       socket.emit('add avatar', users[data.nick])
@@ -48,8 +48,7 @@ io.on('connection', (socket) => {
 
   socket.on('send mess', data => {
     data.img = users[data.nick].avatar;
-    // messages.push(data);
-
+    messages.push(data);
     io.emit('add mess', data);
   
   });
@@ -67,4 +66,3 @@ io.on('connection', (socket) => {
 http.listen(3000, () => {
   console.log('listening on *:3000');
 });
-
