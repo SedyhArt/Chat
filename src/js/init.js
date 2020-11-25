@@ -5,7 +5,7 @@ function getUserInfo() {
   
   userInfo.innerHTML = `<div>${userName.value}</div><div><i>${userNick.value}</i></div>`;
   
-  console.log(userName.value, userNick.value)
+  // console.log(userName.value, userNick.value)
 
   return {
     name: userName.value,

@@ -12,6 +12,7 @@ app.post('/upload', (req, res) => {
 
 var connections = {};
 const users = {};
+const messages = [];
 
 io.on('connection', (socket) => {
   
@@ -38,7 +39,7 @@ io.on('connection', (socket) => {
     
     
     if(users[data.nick].avatar) {
-      socket.emit('add avatar', users[data.nick].avatar)
+      socket.emit('add avatar', users[data.nick])
     };
 
     io.emit('quantity users', connections);
@@ -47,8 +48,9 @@ io.on('connection', (socket) => {
 
   socket.on('send mess', data => {
     data.img = users[data.nick].avatar;
-    
-    io.emit('add mess', data)
+    // messages.push(data);
+
+    io.emit('add mess', data);
   
   });
 

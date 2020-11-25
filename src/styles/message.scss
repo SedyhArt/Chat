@@ -16,6 +16,12 @@
     font-size: 10px;
   }
 
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__alert {
     margin-bottom: 10px;
   }

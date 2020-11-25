@@ -1,3 +1,4 @@
+const avatar = require('./js/avatar');
 const { getUserInfo } = require('./js/init');
 const init = require('./js/init');
 const { sendMessage } = require('./js/message.js');
@@ -22,9 +23,18 @@ enterButton.addEventListener('click', (e) => {
 
   /// Avatar
 
-  const avatar = document.querySelector('.user__icon-img');
+  const avatarIcon = document.querySelector('.user__icon-img');
+  const avatarForm = document.querySelector('.avatar-form__wrapper');
 
-  avatar.addEventListener('dragover', (e) => {
+  avatarIcon.addEventListener('click', (e) => {
+    // console.log(e.target);
+    avatarForm.classList.remove('hidden');
+    chat.classList.add('hidden');
+  })
+
+  const avatarContainer = document.querySelector('.avatar-form__img');
+
+  avatarContainer.addEventListener('dragover', (e) => {
     e.preventDefault();
 
     if (e.dataTransfer.items.length && e.dataTransfer.items[0].kind === "file") {
@@ -32,7 +42,15 @@ enterButton.addEventListener('click', (e) => {
     }
   });
 
-  avatar.addEventListener('drop', (e) => {
+  const closeImageButton = document.querySelector('.controlls__close');
+  closeImageButton.addEventListener('click', () => {
+    avatarContainer.style.backgroundImage = null;
+    console.log('1111')
+    avatarForm.classList.add('hidden');
+    chat.classList.remove('hidden');
+  });
+
+  avatarContainer.addEventListener('drop', (e) => {
     e.preventDefault();
 
     const file = e.dataTransfer.items[0].getAsFile();
@@ -40,13 +58,35 @@ enterButton.addEventListener('click', (e) => {
 
     reader.readAsDataURL(file);
     reader.addEventListener('load', () => {
-      avatar.style.backgroundImage = `url(${reader.result})`;
+      avatarContainer.style.backgroundImage = `url(${reader.result})`;
 
-      let dataImg = {
-        nick: getUserInfo().nick,
-        img: reader.result
-      };
-      socket.emit('send image', dataImg);
+      const loadImageButton = document.querySelector('.controlls__load');
+      loadImageButton.addEventListener('click', () => {
+        avatarIcon.style.backgroundImage = `url(${reader.result})`;
+        
+        // const allMessages = document.querySelectorAll(`.message__avatar[data-role='${getUserInfo().nick}'`);
+      
+        // allMessages.forEach(item => {
+        //   item.style.backgroundImage = `url(${reader.result})`;
+        // })
+
+
+        let dataImg = {
+          nick: getUserInfo().nick,
+          img: reader.result
+        };
+
+        socket.emit('send image', dataImg);
+
+        avatarForm.classList.add('hidden');
+        chat.classList.remove('hidden');
+      });
     })
   })
+
+
+
 });
+
+/// Форма для загрузки аватарки
+
