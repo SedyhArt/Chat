@@ -26,6 +26,15 @@ socket.on('quantity users', connections => {
   quantUsers(connections);
 })
 
+socket.on('add ava message', dataImg => {
+  const allMessages = document.querySelectorAll(`.message__avatar[data-role='${dataImg.nick}'`);
+
+  allMessages.forEach(item => {
+    item.style.backgroundImage = `url(${dataImg.img})`;
+  })
+});
+
+
 const messageContainer = document.querySelector('.messages__list');
 
 socket.on('user disconnect', data => {

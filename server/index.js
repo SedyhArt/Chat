@@ -58,7 +58,9 @@ io.on('connection', (socket) => {
 
   socket.on('send image', dataImg => { //// img это объект вида {nick: ник пользователя, avatar: картинка в формате bs64}
     users[dataImg.nick].avatar = dataImg.img;
-    connections[socket.id].avatar = dataImg.img 
+    connections[socket.id].avatar = dataImg.img;
+    
+    io.emit('add ava message', dataImg);
   });
 });
 

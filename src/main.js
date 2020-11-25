@@ -71,17 +71,20 @@ enterButton.addEventListener('click', (e) => {
       loadImageButton.addEventListener('click', () => {
         avatarIcon.style.backgroundImage = `url(${reader.result})`;
         
-        const allMessages = document.querySelectorAll(`.message__avatar[data-role='${getUserInfo().nick}'`);
+        // const allMessages = document.querySelectorAll(`.message__avatar[data-role='${getUserInfo().nick}'`);
       
-        allMessages.forEach(item => {
-          item.style.backgroundImage = `url(${reader.result})`;
-        })
+        // allMessages.forEach(item => {
+        //   item.style.backgroundImage = `url(${reader.result})`;
+        // })
 
 
         let dataImg = {
           nick: getUserInfo().nick,
           img: reader.result
         };
+
+        // socket.emit('send new ava', )
+
 
         socket.emit('send image', dataImg);
 
