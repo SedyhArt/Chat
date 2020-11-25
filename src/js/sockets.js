@@ -7,9 +7,9 @@ const { addMessage } = require('./message.js');
 
 socket.emit('sendUserData', getUserInfo()); //// Отправляем данные пользователя на сервер 
 
-socket.on('add avatar', ava => {
-  // console.log(ava);
-  addAvatar(ava);
+socket.on('add avatar', user => {
+  console.log(user);
+  addAvatar(user);
 })
 
 socket.on('add mess', function (data) {

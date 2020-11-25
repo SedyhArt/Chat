@@ -26,8 +26,9 @@ enterButton.addEventListener('click', (e) => {
   const avatarIcon = document.querySelector('.user__icon-img');
   const avatarForm = document.querySelector('.avatar-form__wrapper');
 
-  avatarIcon.addEventListener('click', (e) => {
-    // console.log(e.target);
+//// открытие формы загрузки картинки
+
+  avatarIcon.addEventListener('click', () => {
     avatarForm.classList.remove('hidden');
     chat.classList.add('hidden');
   })
@@ -42,6 +43,8 @@ enterButton.addEventListener('click', (e) => {
     }
   });
 
+  /// обработчик закрытия формы
+
   const closeImageButton = document.querySelector('.controlls__close');
   closeImageButton.addEventListener('click', () => {
     avatarContainer.style.backgroundImage = null;
@@ -49,6 +52,8 @@ enterButton.addEventListener('click', (e) => {
     avatarForm.classList.add('hidden');
     chat.classList.remove('hidden');
   });
+
+  //// обработчки добавления фото "drop"
 
   avatarContainer.addEventListener('drop', (e) => {
     e.preventDefault();
@@ -60,15 +65,17 @@ enterButton.addEventListener('click', (e) => {
     reader.addEventListener('load', () => {
       avatarContainer.style.backgroundImage = `url(${reader.result})`;
 
+///// обработчки загрузки фото
+
       const loadImageButton = document.querySelector('.controlls__load');
       loadImageButton.addEventListener('click', () => {
         avatarIcon.style.backgroundImage = `url(${reader.result})`;
         
-        // const allMessages = document.querySelectorAll(`.message__avatar[data-role='${getUserInfo().nick}'`);
+        const allMessages = document.querySelectorAll(`.message__avatar[data-role='${getUserInfo().nick}'`);
       
-        // allMessages.forEach(item => {
-        //   item.style.backgroundImage = `url(${reader.result})`;
-        // })
+        allMessages.forEach(item => {
+          item.style.backgroundImage = `url(${reader.result})`;
+        })
 
 
         let dataImg = {
