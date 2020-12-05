@@ -14,6 +14,7 @@ function addMessage(message) {
   if (m < 10) m = '0' + m
 
   let bg = " ";
+  console.log(message.img == true);
   if (message.img) {
     bg = `style="background-image: url(${message.img})"`;
   }

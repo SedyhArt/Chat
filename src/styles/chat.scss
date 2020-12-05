@@ -45,7 +45,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+}
+
+.users__item-nick {
+  font-weight: lighter;
 }
 
 .messages {
@@ -54,16 +57,17 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid gray;
 
   &__header {
     margin-bottom: auto;
     height: 15%;
     width: 100%;
-    background-color: #bc6ff1;
+    background-color: #000033;
     padding: 2% 4%;
     display: flex;
     justify-content: space-between;
-
+    border-bottom: 1px solid gray;
   }
 
   &__window {
@@ -71,10 +75,11 @@
     background: #0e1621;
     height: 72%;
     width: 100%;
-    background-color: #892cdc;
+    background-color:#000033;
     padding: 10px 15px;
     overflow: hidden;
     overflow-y: scroll;
+    border-bottom: 1px solid gray;
   }
 
   &__list {

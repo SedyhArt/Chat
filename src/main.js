@@ -6,11 +6,11 @@ const { sendMessage } = require('./js/message.js');
 /// получение данных пользователя
 
 const enterButton = document.querySelector('#enterButton');
-const wrapper = document.querySelector('.wrapper');
+const enter = document.querySelector('.enter');
 const chat = document.querySelector('.chat');
 
 enterButton.addEventListener('click', (e) => {
-  wrapper.classList.add('hidden');
+  enter.classList.add('hidden');
   chat.classList.remove('hidden');
 
   const socket = require('./js/sockets');

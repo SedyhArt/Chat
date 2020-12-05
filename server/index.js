@@ -22,7 +22,6 @@ io.on('connection', (socket) => {
         io.emit('user disconnect', connections[key])
         delete connections[key];
       }
-
       io.emit('quantity users', connections);
     }
   })
@@ -36,7 +35,7 @@ io.on('connection', (socket) => {
     connections[socket.id] = data;
 
     io.emit('user connect', connections[socket.id]);
-    io.emit('all messages', messages);
+    socket.emit('all messages', messages);
     
     if(users[data.nick].avatar) {
       socket.emit('add avatar', users[data.nick])

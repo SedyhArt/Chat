@@ -49,6 +49,8 @@ socket.on('user connect', data => {
 
 socket.on('all messages', messages => {
   console.log(messages)
+  // const messageContainer = document.querySelector('.messages__list');
+  // messageContainer.innerHTML = ''
   messages.forEach(item => addMessage(item));
 });
 

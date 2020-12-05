@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 1.6rem;
   margin: 0;
   padding: 0;
@@ -18,11 +19,11 @@ body {
   position: relative;
 }
 
-.us {
+.ul {
   list-style: none;
 }
 
-.wrapper.hidden, .chat.hidden {
+.enter.hidden, .chat.hidden {
   display: none;
 }
 
@@ -32,3 +33,4 @@ body {
 @import "styles/message.scss";
 @import "styles/users.scss";
 @import "styles/avatar-form.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
