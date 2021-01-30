@@ -1,0 +1,95 @@
+[33mcommit 919b1e3e93f26a43696e469f1624b386b6393259[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sat Jan 30 19:48:30 2021 +0300
+
+    добавлена иконка заглушка на аватар
+
+[33mcommit bc071528697371d5a99d9e355758eef80647b80d[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sat Dec 5 21:04:44 2020 +0300
+
+    небольшой рефакторинг
+
+[33mcommit 741fcae68c28dbf8087e626cd59b7b6514930eb1[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Wed Nov 25 21:44:26 2020 +0300
+
+    Загрузка всех сообщений
+
+[33mcommit 1b792cd27e2416684a1be2fec583b292232905d3[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Wed Nov 25 21:31:51 2020 +0300
+
+    загрузка авы в сообщения
+
+[33mcommit 86fb22584b207d022bfc5f4750f378c24766406c[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Wed Nov 25 20:31:21 2020 +0300
+
+    Исправление ошибок при загрузке аватара
+
+[33mcommit 5d30d96ee34f19b143089bb9001beeee8a8b827f[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Wed Nov 25 07:38:07 2020 +0300
+
+    исправление ошибок
+
+[33mcommit 04ba563e59272d3beaa85f129b44743ba49ef4b6[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Tue Nov 24 07:20:03 2020 +0300
+
+    Уведомление о подключении/отключении пользователя
+
+[33mcommit 810923e383e8c439b7d4e80468a1322153e5c4a0[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Tue Nov 24 00:08:23 2020 +0300
+
+    Чат готов
+
+[33mcommit 09f341092b3149288c4b31a448e7a604d7675131[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Mon Nov 23 23:38:36 2020 +0300
+
+    Хранение аватарок, вывод списка пользователей
+
+[33mcommit cb6f59c284bb1b43fc646623983f4aca126e5fda[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sun Nov 22 21:14:52 2020 +0300
+
+    выводитсяя колличество пользователей
+
+[33mcommit 4681b1ba8f343ed362bb7ee9d35b858d39c9ef3f[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sun Nov 22 20:22:58 2020 +0300
+
+    загрузка картинок в сообщении
+
+[33mcommit eb9c6522002c504420cf24f446775a43fcdd0870[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sun Nov 22 19:06:33 2020 +0300
+
+    сохранение картинок на сервере
+
+[33mcommit 891bd94bf63bd96257065a6ce5ae8d92faa7168d[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Sun Nov 22 14:56:27 2020 +0300
+
+    дабавил d&d на аватар
+
+[33mcommit ed83d7df439a426c0fad1d0c03c3b5efbe965049[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Fri Nov 20 22:38:44 2020 +0300
+
+    добавлен сервер, начало реализации отправки сообщений
+
+[33mcommit f800e15bbb5d395cb62fe62b1ffd5bea724aa19c[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Wed Nov 18 21:30:47 2020 +0300
+
+    добавлена секция входа, начало socket
+
+[33mcommit f0cdba6f54bad2a37cba3c5aecc8a54315e0f276[m
+Author: Artem Sedykh <sedixtema@icloud.com>
+Date:   Tue Nov 17 20:49:55 2020 +0300
+
+    first commit
